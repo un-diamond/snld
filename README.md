@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# S Nisanov Lux Diamond — Phase 1
 
-## Getting Started
+Private jewellery **showcase** with contact intent. This is not ecommerce: there is no cart, checkout, account, CMS, or database.
 
-First, run the development server:
+All catalogue entries are **placeholders** (`placeholder: true`) so layout can be built. Replace copy, contact details, and photography before any public launch.
+
+## Scripts
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Local URL: `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local`:
 
-## Learn More
+```
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Use the production origin for `NEXT_PUBLIC_SITE_URL` so sitemap and canonical URLs are correct.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Optional later:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+NEXT_PUBLIC_HIDE_PLACEHOLDERS=true
+```
 
-## Deploy on Vercel
+Phase 1 keeps placeholder studies visible even without that flag.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Client assets (TODO)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Replace before launch:
+
+- Brand photography in `public/images/brand`, `public/images/home`, `public/images/products`
+- Copy in `src/data/site.ts`, `src/data/categories.ts`, `src/data/products.ts`
+- Contact email (`hello@example.com` is a REPLACE marker)
+- Privacy policy on `/privacy`
+- Open Graph art if a designed still is supplied (`src/app/opengraph-image.tsx` is a typed placeholder)
+
+Do not invent certificates, prices, WhatsApp numbers, or heritage claims.
+
+## Deploy
+
+- **Vercel:** import the repo; zero extra config. Set `NEXT_PUBLIC_SITE_URL`.
+- **Netlify:** `netlify.toml` is included. Use the Next.js runtime plugin. Set `NEXT_PUBLIC_SITE_URL`.
+
+## Routes
+
+| Path | Purpose |
+| --- | --- |
+| `/` | Home showcase |
+| `/collection` | All published studies |
+| `/collection/[category]` | Category grid |
+| `/product/[sku]` | Study detail + inquiry |
+| `/about` | Placeholder narrative |
+| `/contact` | Channels + mailto form |
+| `/privacy` | Holding policy |
+
+## Stack
+
+Next.js (App Router), React, TypeScript (strict), Tailwind CSS. Server Components by default. Client Components: mobile navigation, product gallery, contact form.
