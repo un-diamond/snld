@@ -1,34 +1,43 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
-import { navLinks } from "@/lib/links";
-import { MobileNav } from "@/components/layout/MobileNav";
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-hairline)] bg-[var(--color-charcoal)]/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-[3.75rem] max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link
-          href="/"
-          className="min-h-11 py-2 font-serif text-[15px] tracking-[0.08em] text-[var(--color-ivory)] sm:text-lg"
-        >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+        <Link href="/" className="font-serif text-sm tracking-[0.2em] text-[var(--color-diamond)]">
           {siteConfig.brandName}
         </Link>
-        <nav className="hidden md:block" aria-label="Primary">
-          <ul className="flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="inline-flex min-h-11 items-center text-[11px] uppercase tracking-[0.22em] text-[var(--color-muted)] hover:text-[var(--color-ivory)]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <MobileNav />
+        <button
+          type="button"
+          className="text-[11px] tracking-[0.32em] text-[var(--color-diamond)]"
+          onClick={() => setOpen(true)}
+          aria-label="Open menu"
+        >
+          MENU
+        </button>
       </div>
+
+      {open ? (
+        <div className="fixed inset-0 z-50 bg-black/95">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+            <span className="font-serif text-sm tracking-[0.2em]">{siteConfig.brandName}</span>
+            <button type="button" className="text-[11px] tracking-[0.32em]" onClick={() => setOpen(false)}>
+              CLOSE
+            </button>
+          </div>
+          <nav className="flex min-h-[70vh] flex-col items-center justify-center gap-8 font-serif text-3xl tracking-[0.12em]">
+            <Link href="/" onClick={() => setOpen(false)}>Home</Link>
+            <Link href="/#collection" onClick={() => setOpen(false)}>Collection</Link>
+            <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+          </nav>
+        </div>
+      ) : null}
     </header>
   );
 }

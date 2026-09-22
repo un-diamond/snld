@@ -21,16 +21,11 @@ export type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
-  brandName: "S Nisanov Lux Diamond",
-  // TODO: REPLACE with approved client tagline
-  tagline: "[Placeholder] A private jewellery study — copy pending client approval.",
+  brandName: "S NISANOV LUX DIAMOND",
+  tagline: "Timeless diamond luxury.",
   locale: "en",
   contact: {
-    // TODO: REPLACE with the client email
     email: "hello@example.com",
-    // phone, whatsapp, and address intentionally omitted until provided
   },
-  social: {
-    // TODO: REPLACE with official profiles only when supplied
-  },
+  social: {},
 };

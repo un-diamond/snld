@@ -2,6 +2,7 @@ import { Instrument_Serif, Outfit } from "next/font/google";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { FloatingContact } from "@/components/ui/FloatingContact";
 import { siteConfig } from "@/data/site";
 import { getSiteUrl } from "@/lib/seo";
 import "./globals.css";
@@ -20,15 +21,15 @@ const sans = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: siteConfig.brandName,
-    template: `%s | ${siteConfig.brandName}`,
+    default: "S NISANOV LUX DIAMOND",
+    template: "%s",
   },
   description: siteConfig.tagline,
   openGraph: {
     type: "website",
-    siteName: siteConfig.brandName,
+    siteName: "S NISANOV LUX DIAMOND",
     locale: siteConfig.locale,
-    title: siteConfig.brandName,
+    title: "S NISANOV LUX DIAMOND",
     description: siteConfig.tagline,
   },
   robots: {
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main" className="flex-1">
           {children}
         </main>
+        <FloatingContact />
         <SiteFooter />
       </body>
     </html>
