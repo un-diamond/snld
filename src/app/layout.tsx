@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description: siteConfig.tagline,
+  icons: {
+    icon: "/icon.png",
+  },
   openGraph: {
     type: "website",
     siteName: "S NISANOV LUX DIAMOND",
