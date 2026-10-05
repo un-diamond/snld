@@ -65,7 +65,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-[var(--color-hairline)]">
         <p className="mx-auto max-w-6xl px-5 py-5 text-xs text-[var(--color-muted)] sm:px-8">
-          © {year} {siteConfig.brandName}. Showcase only — not an online store.
+        © {year} {siteConfig.brandName}. All rights reserved.
         </p>
       </div>
     </footer>

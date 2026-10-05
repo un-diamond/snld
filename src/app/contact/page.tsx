@@ -6,8 +6,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
   title: "Contact",
-  description:
-    "[Placeholder] Inquire about a study piece. This site does not take payments.",
+  description: "Private inquiry for S Nisanov Lux Diamond. This site does not take payments.",
   path: "/contact",
 });
 
