@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
     default: "S NISANOV LUX DIAMOND",
-    template: "%s",
+    template: "%s | S NISANOV LUX DIAMOND",
   },
   description: siteConfig.tagline,
   icons: {
