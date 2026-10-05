@@ -25,7 +25,9 @@ export const siteConfig: SiteConfig = {
   tagline: "Timeless diamond luxury.",
   locale: "en",
   contact: {
-    email: "hello@example.com",
+    email: "snisanov.lux@gmail.com",
+    phone: "+61466816659",
+    whatsapp: "https://wa.me/61466816659",
   },
   social: {},
 };
