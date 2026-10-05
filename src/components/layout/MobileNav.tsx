@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Link from "next/link";
-
 import { navLinks } from "@/lib/links";
 
 export function MobileNav() {
@@ -11,15 +9,12 @@ export function MobileNav() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
-  const mobileMenuLinks = navLinks.filter(
-    (link) => link.href !== "/contact"
-  );
+  const mobileMenuLinks = navLinks.filter((link) => !link.href.startsWith("http"));
 
   return (
     <div className="md:hidden">
@@ -56,12 +51,14 @@ export function MobileNav() {
         </div>
       ) : null}
 
-      <Link
-        href="/contact"
+      <a
+        href="https://wa.me/61466816659"
+        target="_blank"
+        rel="noopener noreferrer"
         className="fixed bottom-5 right-5 z-50 inline-flex min-h-11 items-center border border-[var(--color-rose)] bg-[var(--color-charcoal)]/95 px-5 text-[10px] uppercase tracking-[0.28em] text-[var(--color-rose)] shadow-lg backdrop-blur-sm transition hover:bg-[var(--color-rose)] hover:text-[var(--color-charcoal)]"
       >
-        CONTACT
-      </Link>
+        WHATSAPP
+      </a>
     </div>
   );
 }
