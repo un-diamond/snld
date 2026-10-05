@@ -3,7 +3,7 @@ import { siteConfig } from "@/data/site";
 export const navLinks = [
   { href: "/collection", label: "Collection" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "https://wa.me/61466816659", label: "Contact" },
 ] as const;
 
 export type ExternalLinkProps = {

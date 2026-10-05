@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
+const whatsapp = "https://wa.me/61466816659";
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -34,7 +36,9 @@ export function SiteHeader() {
           <nav className="flex min-h-[70vh] flex-col items-center justify-center gap-8 font-serif text-3xl tracking-[0.12em]">
             <Link href="/" onClick={() => setOpen(false)}>Home</Link>
             <Link href="/#collection" onClick={() => setOpen(false)}>Collection</Link>
-            <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+              Contact
+            </a>
           </nav>
         </div>
       ) : null}
